@@ -23,7 +23,7 @@ def check_path_and_return_new_file_name_with_postfix(path: str, extension: str =
     counter = 0
     while os.path.exists(new_path):
         counter += 1
-        new_path = os.path.join(path, f"{name}_{postfix} {str(counter).rjust(2, '0')}{ext}")
+        new_path = os.path.join(path, f"{name}_{postfix}_{str(counter).rjust(2, '0')}{ext}")
         if counter >= 1000:
             print("Error: A new file name cannot be generated. All constructed names already exist. Abort after 1,000 unsuccessful attempts.")
             exit(0)
