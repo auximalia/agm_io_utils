@@ -1,6 +1,34 @@
 # -*- coding: utf-8 -*-
 import os
 from typing import List
+from datetime import datetime
+
+
+def check_path_and_return_new_file_name_with_postfix(path: str, extension: str = "", postfix: str = "") -> str:
+    # 1. check extension
+    if extension and not path.endswith(extension):
+        print(f"Error -> File: '{path}' is not a {extension} file.")
+        return ""
+    # 2. file exists?
+    if not os.path.exists(path):
+        print(f"Error -> File: '{path}' could not be found.")
+        return ""
+    # 3. decompose path
+    path, file_name = os.path.split(path)
+    name, ext = os.path.splitext(file_name)
+    # 4. create postfix if not exists as timestamp
+    if not postfix:
+        postfix = datetime.now().strftime("%Y-%m-%d %a %H.%M.%S")
+    new_path = os.path.join(path, f"{name}_{postfix}{ext}")
+    counter = 0
+    while os.path.exists(new_path):
+        counter += 1
+        new_path = os.path.join(path, f"{name}_{postfix} {str(counter).rjust(2, '0')}{ext}")
+        if counter >= 1000:
+            print("Error: A new file name cannot be generated. All constructed names already exist. Abort after 1,000 unsuccessful attempts.")
+            exit(0)
+    # 5. return new path
+    return new_path
 
 
 def get_all_files_recursively_from_path(path: str,
@@ -51,9 +79,9 @@ def get_all_files_recursively_from_path(path: str,
             list_with_filenames.append(os.path.join(dir_path, a_file_name))
     # 2. inform the user about the results
     if list_with_filenames:
-        print(f"{len(list_with_filenames)} Dateien gefunden im Ordner '{path}'")
+        print(f"{len(list_with_filenames)} files found in folder '{path}'")
     else:
-        print(f"Keine Dateien gefunden im Ordner: '{path}'")
+        print(f"No files found in folder: '{path}'")
     # 3. return the sorted list
     return sorted(list_with_filenames)
 
