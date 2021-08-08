@@ -6,7 +6,7 @@ Install:
 ```
 pip install agm_io_utils
 ```
-Example 1:
+**Example 1:**
 ```
 from agm_io_utils import io_utils
 
@@ -25,7 +25,8 @@ Output:
 C:\Users\micro\OneDrive\Dokumente\Python.xmind
 C:\Users\micro\OneDrive\Dokumente\wmr\Wissen\Python.xmind
 ```  
-Example 2:   
+
+**Example 2:**  
 Explanation: Sometimes you get a path to a file through user input. Now the following has to be done:
 
 1. Check whether the file type specified by the user is actually the correct one (e.g. '.txt')
