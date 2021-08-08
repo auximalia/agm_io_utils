@@ -25,10 +25,11 @@ Output:
 C:\Users\micro\OneDrive\Dokumente\Python.xmind
 C:\Users\micro\OneDrive\Dokumente\wmr\Wissen\Python.xmind
 ```  
-Example 2:  
+Example 2:   
 Explanation: Sometimes you get a path to a file through user input. Now the following has to be done:
-1. Test whether the file actually exists
-2. Check whether the file type specified by the user is actually the correct one
+
+1. Check whether the file type specified by the user is actually the correct one
+2. Test whether the file actually exists
 3. To save the original file from being changed, find a new file name for the target file.  
    A postfix can either be appended here or, if no postfix is specified, a time stamp is automatically appended. In any case, it must be ensured that the target file does not yet exist in the file system. 
    If so, count up the file name with an additional index.
@@ -42,9 +43,7 @@ from agm_io_utils import io_utils
 ```
 Output:
 ```
-2 files found in folder 'C:\Users\micro\OneDrive\Dokumente'
-C:\Users\micro\OneDrive\Dokumente\Python.xmind
-C:\Users\micro\OneDrive\Dokumente\wmr\Wissen\Python.xmind
+C:\Users\micro\OneDrive\Dokumente\clean_this_xminds_tested_06.txt
 ```
 
 
