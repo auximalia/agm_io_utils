@@ -26,7 +26,7 @@ def check_path_and_return_new_file_name_with_postfix(path: str, extension: str =
         new_path = os.path.join(path, f"{name}_{postfix}_{str(counter).rjust(2, '0')}{ext}")
         if counter >= 1000:
             print("Error: A new file name cannot be generated. All constructed names already exist. Abort after 1,000 unsuccessful attempts.")
-            exit(0)
+            return ""
     # 5. return new path
     return new_path
 
@@ -77,12 +77,8 @@ def get_all_files_recursively_from_path(path: str,
 
             # 1.3 compile the abs path and add it to the result list
             list_with_filenames.append(os.path.join(dir_path, a_file_name))
-    # 2. inform the user about the results
-    if list_with_filenames:
-        print(f"{len(list_with_filenames)} files found in folder '{path}'")
-    else:
-        print(f"No files found in folder: '{path}'")
-    # 3. return the sorted list
+
+    # 2. return the sorted list
     return sorted(list_with_filenames)
 
 
