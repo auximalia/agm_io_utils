@@ -1,6 +1,5 @@
-import os
-from agm_io_utils.io_utils import get_all_files_recursively_from_path
-from agm_io_utils.io_utils import check_path_and_return_new_file_name_with_postfix
+from agm_io_utils import get_all_files_recursively_from_path
+from agm_io_utils import check_path_and_return_new_file_name_with_postfix
 import unittest
 
 
